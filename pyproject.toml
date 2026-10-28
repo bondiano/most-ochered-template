@@ -1,0 +1,22 @@
+[project]
+name = "most-ochered"
+version = "0.1.0"
+description = "Фоновая обработка заказов на Кэш-рынке: босс раздела PY11 BatSchool"
+requires-python = ">=3.14"
+# Пины те же, что в песочнице школы (runner-python-backend), плюс драйвер PostgreSQL.
+dependencies = [
+    "redis==6.4.0",
+    "celery[redis]==5.6.3",
+    "sqlalchemy==2.1.6",
+    "psycopg[binary]==3.3.6",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==8.4.2",
+    "fakeredis[lua]==2.40.0",
+    "mypy==1.18.2",
+]
+
+[tool.uv]
+package = false

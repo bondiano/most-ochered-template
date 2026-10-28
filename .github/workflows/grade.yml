@@ -1,0 +1,17 @@
+name: grade
+on:
+  push:
+  workflow_dispatch:
+
+# The called workflow needs these; a caller cannot grant less.
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  grade:
+    uses: bondiano/py-graders-ci/.github/workflows/grade.yml@v1
+    with:
+      craft: ochered
+      stage: '11'
+      services: postgres,redis
